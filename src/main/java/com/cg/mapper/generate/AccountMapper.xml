@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.mapper.generate.AccountMapper">
+  <resultMap id="BaseResultMap" type="com.cg.entity.generate.Account">
+    <id column="account_id" jdbcType="INTEGER" property="accountId" />
+    <result column="account_name" jdbcType="VARCHAR" property="accountName" />
+    <result column="account_password" jdbcType="VARCHAR" property="accountPassword" />
+    <result column="account_email" jdbcType="VARCHAR" property="accountEmail" />
+    <result column="account_age" jdbcType="INTEGER" property="accountAge" />
+    <result column="account_sex" jdbcType="INTEGER" property="accountSex" />
+    <result column="account_tel" jdbcType="INTEGER" property="accountTel" />
+    <result column="account_address" jdbcType="VARCHAR" property="accountAddress" />
+    <result column="account_date" jdbcType="DATE" property="accountDate" />
+    <result column="account_autograph" jdbcType="VARCHAR" property="accountAutograph" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    account_id, account_name, account_password, account_email, account_age, account_sex, 
+    account_tel, account_address, account_date, account_autograph
+  </sql>
+  <select id="selectByExample" parameterType="com.cg.entity.generate.AccountExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from account
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from account
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cg.entity.generate.AccountExample">
+    delete from account
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cg.entity.generate.Account">
+    insert into account (account_id, account_name, account_password, 
+      account_email, account_age, account_sex, 
+      account_tel, account_address, account_date, 
+      account_autograph)
+    values (#{accountId,jdbcType=INTEGER}, #{accountName,jdbcType=VARCHAR}, #{accountPassword,jdbcType=VARCHAR}, 
+      #{accountEmail,jdbcType=VARCHAR}, #{accountAge,jdbcType=INTEGER}, #{accountSex,jdbcType=INTEGER}, 
+      #{accountTel,jdbcType=INTEGER}, #{accountAddress,jdbcType=VARCHAR}, #{accountDate,jdbcType=DATE}, 
+      #{accountAutograph,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cg.entity.generate.Account">
+    insert into account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accountId != null">
+        account_id,
+      </if>
+      <if test="accountName != null">
+        account_name,
+      </if>
+      <if test="accountPassword != null">
+        account_password,
+      </if>
+      <if test="accountEmail != null">
+        account_email,
+      </if>
+      <if test="accountAge != null">
+        account_age,
+      </if>
+      <if test="accountSex != null">
+        account_sex,
+      </if>
+      <if test="accountTel != null">
+        account_tel,
+      </if>
+      <if test="accountAddress != null">
+        account_address,
+      </if>
+      <if test="accountDate != null">
+        account_date,
+      </if>
+      <if test="accountAutograph != null">
+        account_autograph,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accountId != null">
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountPassword != null">
+        #{accountPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="accountEmail != null">
+        #{accountEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="accountAge != null">
+        #{accountAge,jdbcType=INTEGER},
+      </if>
+      <if test="accountSex != null">
+        #{accountSex,jdbcType=INTEGER},
+      </if>
+      <if test="accountTel != null">
+        #{accountTel,jdbcType=INTEGER},
+      </if>
+      <if test="accountAddress != null">
+        #{accountAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDate != null">
+        #{accountDate,jdbcType=DATE},
+      </if>
+      <if test="accountAutograph != null">
+        #{accountAutograph,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cg.entity.generate.AccountExample" resultType="java.lang.Integer">
+    select count(*) from account
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update account
+    <set>
+      <if test="record.accountId != null">
+        account_id = #{record.accountId,jdbcType=INTEGER},
+      </if>
+      <if test="record.accountName != null">
+        account_name = #{record.accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountPassword != null">
+        account_password = #{record.accountPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountEmail != null">
+        account_email = #{record.accountEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountAge != null">
+        account_age = #{record.accountAge,jdbcType=INTEGER},
+      </if>
+      <if test="record.accountSex != null">
+        account_sex = #{record.accountSex,jdbcType=INTEGER},
+      </if>
+      <if test="record.accountTel != null">
+        account_tel = #{record.accountTel,jdbcType=INTEGER},
+      </if>
+      <if test="record.accountAddress != null">
+        account_address = #{record.accountAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountDate != null">
+        account_date = #{record.accountDate,jdbcType=DATE},
+      </if>
+      <if test="record.accountAutograph != null">
+        account_autograph = #{record.accountAutograph,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update account
+    set account_id = #{record.accountId,jdbcType=INTEGER},
+      account_name = #{record.accountName,jdbcType=VARCHAR},
+      account_password = #{record.accountPassword,jdbcType=VARCHAR},
+      account_email = #{record.accountEmail,jdbcType=VARCHAR},
+      account_age = #{record.accountAge,jdbcType=INTEGER},
+      account_sex = #{record.accountSex,jdbcType=INTEGER},
+      account_tel = #{record.accountTel,jdbcType=INTEGER},
+      account_address = #{record.accountAddress,jdbcType=VARCHAR},
+      account_date = #{record.accountDate,jdbcType=DATE},
+      account_autograph = #{record.accountAutograph,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cg.entity.generate.Account">
+    update account
+    <set>
+      <if test="accountName != null">
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountPassword != null">
+        account_password = #{accountPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="accountEmail != null">
+        account_email = #{accountEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="accountAge != null">
+        account_age = #{accountAge,jdbcType=INTEGER},
+      </if>
+      <if test="accountSex != null">
+        account_sex = #{accountSex,jdbcType=INTEGER},
+      </if>
+      <if test="accountTel != null">
+        account_tel = #{accountTel,jdbcType=INTEGER},
+      </if>
+      <if test="accountAddress != null">
+        account_address = #{accountAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDate != null">
+        account_date = #{accountDate,jdbcType=DATE},
+      </if>
+      <if test="accountAutograph != null">
+        account_autograph = #{accountAutograph,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cg.entity.generate.Account">
+    update account
+    set account_name = #{accountName,jdbcType=VARCHAR},
+      account_password = #{accountPassword,jdbcType=VARCHAR},
+      account_email = #{accountEmail,jdbcType=VARCHAR},
+      account_age = #{accountAge,jdbcType=INTEGER},
+      account_sex = #{accountSex,jdbcType=INTEGER},
+      account_tel = #{accountTel,jdbcType=INTEGER},
+      account_address = #{accountAddress,jdbcType=VARCHAR},
+      account_date = #{accountDate,jdbcType=DATE},
+      account_autograph = #{accountAutograph,jdbcType=VARCHAR}
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </update>
+  <select id="selectAccount" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from account
+    where account_name= #{accountName,jdbcType=VARCHAR}
+  </select>
+</mapper>

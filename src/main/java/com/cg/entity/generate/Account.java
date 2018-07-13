@@ -15,11 +15,11 @@ public class Account {
 
     private Integer accountSex;
 
-    private Integer accountTel;
+    private String accountTel;
 
     private String accountAddress;
 
-    private Date accountDate;
+    private Date date;
 
     private String accountAutograph;
 
@@ -71,12 +71,12 @@ public class Account {
         this.accountSex = accountSex;
     }
 
-    public Integer getAccountTel() {
+    public String getAccountTel() {
         return accountTel;
     }
 
-    public void setAccountTel(Integer accountTel) {
-        this.accountTel = accountTel;
+    public void setAccountTel(String accountTel) {
+        this.accountTel = accountTel == null ? null : accountTel.trim();
     }
 
     public String getAccountAddress() {
@@ -87,12 +87,12 @@ public class Account {
         this.accountAddress = accountAddress == null ? null : accountAddress.trim();
     }
 
-    public Date getAccountDate() {
-        return accountDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setAccountDate(Date accountDate) {
-        this.accountDate = accountDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getAccountAutograph() {

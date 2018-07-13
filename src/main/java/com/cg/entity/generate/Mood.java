@@ -1,7 +1,7 @@
 package com.cg.entity.generate;
 
-
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
 
 public class Mood {
     private Integer id;
@@ -13,6 +13,16 @@ public class Mood {
     private String picture;
 
     private Date date;
+
+    private List<NewComment> commentList;
+
+    public List<NewComment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<NewComment> commentList) {
+        this.commentList = commentList;
+    }
 
     public Integer getId() {
         return id;

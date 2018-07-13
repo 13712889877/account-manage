@@ -2,10 +2,11 @@ package com.cg.mapper.generate;
 
 import com.cg.entity.generate.Mood;
 import com.cg.entity.generate.MoodExample;
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
 @Mapper
 public interface MoodMapper {
     int countByExample(MoodExample example);

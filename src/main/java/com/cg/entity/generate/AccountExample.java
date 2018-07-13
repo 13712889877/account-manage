@@ -532,52 +532,62 @@ public class AccountExample {
             return (Criteria) this;
         }
 
-        public Criteria andAccountTelEqualTo(Integer value) {
+        public Criteria andAccountTelEqualTo(String value) {
             addCriterion("account_tel =", value, "accountTel");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTelNotEqualTo(Integer value) {
+        public Criteria andAccountTelNotEqualTo(String value) {
             addCriterion("account_tel <>", value, "accountTel");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTelGreaterThan(Integer value) {
+        public Criteria andAccountTelGreaterThan(String value) {
             addCriterion("account_tel >", value, "accountTel");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTelGreaterThanOrEqualTo(Integer value) {
+        public Criteria andAccountTelGreaterThanOrEqualTo(String value) {
             addCriterion("account_tel >=", value, "accountTel");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTelLessThan(Integer value) {
+        public Criteria andAccountTelLessThan(String value) {
             addCriterion("account_tel <", value, "accountTel");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTelLessThanOrEqualTo(Integer value) {
+        public Criteria andAccountTelLessThanOrEqualTo(String value) {
             addCriterion("account_tel <=", value, "accountTel");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTelIn(List<Integer> values) {
+        public Criteria andAccountTelLike(String value) {
+            addCriterion("account_tel like", value, "accountTel");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountTelNotLike(String value) {
+            addCriterion("account_tel not like", value, "accountTel");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountTelIn(List<String> values) {
             addCriterion("account_tel in", values, "accountTel");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTelNotIn(List<Integer> values) {
+        public Criteria andAccountTelNotIn(List<String> values) {
             addCriterion("account_tel not in", values, "accountTel");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTelBetween(Integer value1, Integer value2) {
+        public Criteria andAccountTelBetween(String value1, String value2) {
             addCriterion("account_tel between", value1, value2, "accountTel");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTelNotBetween(Integer value1, Integer value2) {
+        public Criteria andAccountTelNotBetween(String value1, String value2) {
             addCriterion("account_tel not between", value1, value2, "accountTel");
             return (Criteria) this;
         }
@@ -652,63 +662,63 @@ public class AccountExample {
             return (Criteria) this;
         }
 
-        public Criteria andAccountDateIsNull() {
-            addCriterion("account_date is null");
+        public Criteria andDateIsNull() {
+            addCriterion("date is null");
             return (Criteria) this;
         }
 
-        public Criteria andAccountDateIsNotNull() {
-            addCriterion("account_date is not null");
+        public Criteria andDateIsNotNull() {
+            addCriterion("date is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAccountDateEqualTo(Date value) {
-            addCriterionForJDBCDate("account_date =", value, "accountDate");
+        public Criteria andDateEqualTo(Date value) {
+            addCriterionForJDBCDate("date =", value, "date");
             return (Criteria) this;
         }
 
-        public Criteria andAccountDateNotEqualTo(Date value) {
-            addCriterionForJDBCDate("account_date <>", value, "accountDate");
+        public Criteria andDateNotEqualTo(Date value) {
+            addCriterionForJDBCDate("date <>", value, "date");
             return (Criteria) this;
         }
 
-        public Criteria andAccountDateGreaterThan(Date value) {
-            addCriterionForJDBCDate("account_date >", value, "accountDate");
+        public Criteria andDateGreaterThan(Date value) {
+            addCriterionForJDBCDate("date >", value, "date");
             return (Criteria) this;
         }
 
-        public Criteria andAccountDateGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("account_date >=", value, "accountDate");
+        public Criteria andDateGreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("date >=", value, "date");
             return (Criteria) this;
         }
 
-        public Criteria andAccountDateLessThan(Date value) {
-            addCriterionForJDBCDate("account_date <", value, "accountDate");
+        public Criteria andDateLessThan(Date value) {
+            addCriterionForJDBCDate("date <", value, "date");
             return (Criteria) this;
         }
 
-        public Criteria andAccountDateLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("account_date <=", value, "accountDate");
+        public Criteria andDateLessThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("date <=", value, "date");
             return (Criteria) this;
         }
 
-        public Criteria andAccountDateIn(List<Date> values) {
-            addCriterionForJDBCDate("account_date in", values, "accountDate");
+        public Criteria andDateIn(List<Date> values) {
+            addCriterionForJDBCDate("date in", values, "date");
             return (Criteria) this;
         }
 
-        public Criteria andAccountDateNotIn(List<Date> values) {
-            addCriterionForJDBCDate("account_date not in", values, "accountDate");
+        public Criteria andDateNotIn(List<Date> values) {
+            addCriterionForJDBCDate("date not in", values, "date");
             return (Criteria) this;
         }
 
-        public Criteria andAccountDateBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("account_date between", value1, value2, "accountDate");
+        public Criteria andDateBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("date between", value1, value2, "date");
             return (Criteria) this;
         }
 
-        public Criteria andAccountDateNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("account_date not between", value1, value2, "accountDate");
+        public Criteria andDateNotBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("date not between", value1, value2, "date");
             return (Criteria) this;
         }
 

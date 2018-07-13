@@ -2,13 +2,10 @@ package com.cg.mapper.generate;
 
 import com.cg.entity.generate.Account;
 import com.cg.entity.generate.AccountExample;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-
-@Mapper
 public interface AccountMapper {
     int countByExample(AccountExample example);
 

@@ -99,14 +99,13 @@
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn onclick=climeMe()" lay-submit="" lay-filter="demo1"><input class='account'
+            <button class="layui-btn" lay-submit="" lay-filter="demo1"><input class='account'
                                                                                                 type="hidden" value=""/>注册
             </button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>
 </form>
-
 
 <script>
     layui.use(['form', 'layedit', 'laydate'], function () {
@@ -149,10 +148,38 @@
         });
 
         //监听提交
-        form.on('submit(demo1)', function (data) {
-            layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            })
+        form.on('submit(demo1)', function (formData) {
+            console.log("json:::::"+formData.field);
+
+            $.ajax({
+                url: "/login/register",
+                dataType: "json",
+                type: "post",
+                contentType: "application/json; charset=utf-8",
+                async: true,
+                data: JSON.stringify(formData.field),
+                success: function (data) {
+
+                    if (data.success == "true") {
+
+                        layer.msg('注册成功', {
+                            time: 2000 //2s后自动关闭
+                        });
+                        window.location.href = "/login/index";
+
+                    } else {
+                        layer.msg('注册失败，失败原因：' + data.msg, {
+                            time: 2000 //2s后自动关闭
+                        });
+                    }
+                },
+                error: function () {
+                    layer.msg('请求失败，请重试 ', {
+                        time: 2000 //2s后自动关闭
+                    });
+                }
+            });
+
             return false;
         });
 

@@ -15,7 +15,7 @@ public class MoodServiceImpl implements IMoodService {
     private MoodMapper moodMapper;
 
     @Override
-    public List<Mood> findMood() {
+    public List<Mood> findMood(Integer start, Integer pageSize) {
         MoodExample e = new MoodExample();
         MoodExample.Criteria criteria = e.createCriteria();
         return moodMapper.selectByExample(e);
@@ -30,8 +30,10 @@ public class MoodServiceImpl implements IMoodService {
     public void saveMood(Mood mood) {
 
     }
+
     @Override
     public void insert(Mood mood) {
+        moodMapper.insert(mood);
 
     }
 
